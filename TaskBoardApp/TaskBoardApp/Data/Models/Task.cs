@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static TaskBoardApp.Data.DataConstants;
+using static TaskBoardApp.Data.ConfigurationHelper;
 namespace TaskBoardApp.Data.Models
 {
     [Comment("Task table")]
@@ -17,13 +17,13 @@ namespace TaskBoardApp.Data.Models
         [Required]
         [MaxLength(TaskTitleMinLenght)]
         [Comment("Task title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         //· Description – a string with min length 10 and max length 1000 (required)
         [Required]
         [MaxLength(TaskDescriptionMaxLenght)]
         [Comment("Task description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         //· CreatedOn – date and time
         [Comment("Date of creation")]

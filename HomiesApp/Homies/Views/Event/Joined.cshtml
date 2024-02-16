@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EventInfoViewModel>
+@{
+    ViewBag.Title = "Joined Events";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var e in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h5 class="card-title mt-1">@e.Name</h5>
+                <p class="mb-0"><span class="fw-bold">starting time: </span>@e.Start</p>
+                <p class="mb-0"><span class="fw-bold">type: </span>@e.Type</p>
+            </div>
+
+            @if (User.Identity.Name == e.Organiser)
+            {
+                <a asp-controller="event" asp-action="details" asp-route-id="@e.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">view details</a>
+                <a asp-controller="event" asp-action="edit" asp-route-id="@e.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">edit</a>
+            }
+            else
+            {
+                <form class="input-group-sm " asp-controller="event" asp-action="leave" asp-route-id="@e.Id">
+                    <input type="submit" value="leave the event" class="fs-6 btn btn-warning mb-3 w-100 p-3 fw-bold" />
+                </form>
+                <a asp-controller="event" asp-action="details" asp-route-id="@e.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">view details</a>
+            }
+        </div>
+    }
+</div>
+
+@section scripts {
+    <partial name="_validationscriptspartial" />
+}
+
+

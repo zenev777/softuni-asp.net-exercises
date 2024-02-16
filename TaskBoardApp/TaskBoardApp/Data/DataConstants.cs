@@ -1,6 +1,6 @@
 ﻿namespace TaskBoardApp.Data
 {
-    public static class DataConstants
+    public static class ConfigurationHelper
     {
         //task constants
 

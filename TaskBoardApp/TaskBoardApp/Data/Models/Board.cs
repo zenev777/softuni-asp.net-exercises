@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using static TaskBoardApp.Data.DataConstants;
+using static TaskBoardApp.Data.ConfigurationHelper;
 
 namespace TaskBoardApp.Data.Models
 {
@@ -18,7 +18,7 @@ namespace TaskBoardApp.Data.Models
         public string Name { get; set; }
 
         //· Tasks – a collection of Task
-        public IEnumerable<Task> Tasks { get; set; } = Enumerable.Empty<Task>();
+        public IEnumerable<Task> Tasks { get; set; } = new List<Task>();
 
     }
 }
