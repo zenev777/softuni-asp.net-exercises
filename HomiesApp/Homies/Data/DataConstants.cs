@@ -16,5 +16,12 @@
 
         public const int TypeNameMaxLenght = 15;
         public const int TypeNameMinLenght = 5;
+
+        //Error Massages
+
+        public const string RequireErrorMasage = "The field {0} is required";
+
+        public const string StringLenghtErrorMassage = "The field {0} must be between {2} and {1} character long";
+
     }
 }
